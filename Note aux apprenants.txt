@@ -1,0 +1,1 @@
+Chaque apprenant ou groupe d'apprenants devra créer sa branche de façon à pouvoir faire les push indépendamment des autres apprenants
