@@ -36,8 +36,10 @@ final class Encoder
       {
             $temp = [];
             $output = [];
+
             foreach ($origin as $user)
-                  array_push($temp, json_encode($user));
+                  if (json_encode($user))
+                        array_push($temp, json_encode($user));
 
             foreach ($temp as $user)
                   array_push($output, json_decode($user));

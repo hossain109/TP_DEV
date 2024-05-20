@@ -8,11 +8,19 @@ require('Enumerations/Columns.php');
 require('Enumerations/EncryptMode.php');
 
 // Interfaces
-require('Interfaces/ILoader.php');
-require('Interfaces/ISaver.php');
-require('Interfaces/IDbLoader.php');
+require('Interfaces/System/ILoader.php');
+require('Interfaces/System/ISaver.php');
+require('Interfaces/System/IDbLoader.php');
+
+require('Interfaces/Metier/IAdresse.php');
+require('Interfaces/Metier/IUtilisateur.php');
 
 // Classes
+require('Methods/System/Sanitizer.php');
+
+require('Classes/Metier/Adresse.php');
+require('Classes/Metier/Utilisateur.php');
+
 require('Classes/System/Encoder.php');
 require('Classes/System/RepositoryManager.php');
 require('Classes/System/DbLoader.php');

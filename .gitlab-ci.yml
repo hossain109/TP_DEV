@@ -1,0 +1,41 @@
+default:
+  image: php:latest
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - vendor/
+
+before_script:
+  - php -ver
+
+building:
+  stage: build
+  script:
+    - php -r 'echo "Nothing to build";'
+
+LoaderTest:
+  stage: test
+  script:
+    - php loader.php
+
+Adresse_UT:
+  stage: test
+  script:
+    - php .\vendor\phpunit\phpunit\phpunit UT/AdresseTest.php --colors=never --log-junit phpunit-report.xml tests
+  artifacts:
+    when: always
+    reports:
+      junit: phpunit-report.xml
+
+User_UT:
+  stage: test
+  script:
+    - php .\vendor\phpunit\phpunit\phpunit UT/UserTest.php --colors=never --log-junit phpunit-report.xml tests
+  artifacts:
+    when: always
+    reports:
+      junit: phpunit-report.xml

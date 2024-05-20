@@ -1,0 +1,1 @@
+{"version":1,"defects":{"AdresseTest::testCanBeCreatedFromValidEmail":3},"times":{"AdresseTest::testCanBeCreatedFromValidEmail":0.007,"UserTest::testUser":0.005,"UserTest::testUserAdresseCount":0}}

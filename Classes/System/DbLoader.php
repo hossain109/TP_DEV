@@ -10,7 +10,7 @@ use Interfaces\System\IDbLoader;
 final class DbLoader implements IDbLoader
 {
       private const dbFile = __DIR__ 
-            . '\..\..\DB\2-random-persons-20240427155132.json';
+            . '\..\..\DB\2-random-persons-20240427125432.json';
       
       private const exportFile = __DIR__ . '\..\..\clear_mdp.txt';
 
@@ -28,7 +28,7 @@ final class DbLoader implements IDbLoader
 
       private static function containsPwdColumn(array $ar) : bool
       {
-            return in_array(Columns::Password, $ar);
+            return isset($ar[0][Columns::Password]);
       }
 
       private static function bindPassword(array $ar) : array
@@ -93,12 +93,12 @@ final class DbLoader implements IDbLoader
       }
 
       // PUBLICS
-      public static function GetDatas(bool $exportPwd = false) : array
+      public static function GetDatas(bool $exportPwd = true) : array
       {
             $ar_Users = json_decode(
                   RepositoryManager::Load(
                                     DbLoader::dbFile), true);
-
+            
             if (!DbLoader::containsPwdColumn($ar_Users))
             {
                   $ar_Users = DbLoader::bindPassword($ar_Users);
@@ -109,7 +109,8 @@ final class DbLoader implements IDbLoader
                   );
             }
 
-            DbLoader::exportPwd($ar_Users);
+            if ($exportPwd)
+                  DbLoader::exportPwd($ar_Users);
 
             return $ar_Users;
       }

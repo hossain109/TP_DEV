@@ -40,7 +40,7 @@ You need todo these :
 To clone :
 Place you CLI in a workspace folder and execute this command :
 ```sh
-git clone https://github.com/firstruner/TP_Git.git
+git clone https://gitlab.com/firstruner/tp-devops.git
 ```
 
 To create branch :
